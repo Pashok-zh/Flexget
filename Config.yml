@@ -3,7 +3,7 @@ templates: # Начало настройки пресетов
     pushover: 
       userkey: userkey
       apikey: apikey
-	deluge: # настройка подключения к Deluge
+    deluge: # настройка подключения к Deluge
       user: userkey
       pass: pass
     email:
