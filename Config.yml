@@ -42,7 +42,7 @@ templates: # Начало настройки пресетов
         - 'The Complete'
         - '720p'
         - 'mp4'
-    	  
+        
   BaibaKo: # Конфиг Baibako
     series:
       settings: # Начало настройки фильтра
