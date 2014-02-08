@@ -1,4 +1,3 @@
-
 templates: # Начало настройки пресетов
   global:  # Глобальные настройки
     pushover: 
@@ -111,7 +110,7 @@ tasks: # Начало настройки RSS-потоков
     template: BaibaKo
   Alexfilm:
     rss:
-      url: http://alexfilm.tv/rssu.php?uk=zXne9tWv1N
+      url: http://alexfilm.tv/rssu.php?uk=_uk_
       ascii: yes
     disable_builtins:
       - seen
