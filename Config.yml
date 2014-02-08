@@ -1,6 +1,6 @@
 templates: # Начало настройки пресетов
   global:  # Глобальные настройки
-    pushover: 
+    pushover: # Служба push уведомлений. Необходим клиент для Android либо IOS
       userkey: userkey
       apikey: apikey
     deluge: # настройка подключения к Deluge
