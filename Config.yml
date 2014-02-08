@@ -6,7 +6,7 @@ templates: # Начало настройки пресетов
     deluge: # настройка подключения к Deluge
       user: userkey
       pass: pass
-    email:
+    email: # Уведомления о событиях по почте
       from: xxxx@xxxx.xx 
       to: xxxx@xxxx.xx 
       smtp_host: smtp.xxxx.xx
