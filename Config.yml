@@ -1,0 +1,126 @@
+
+templates: # Начало настройки пресетов
+  global:  # Глобальные настройки
+    pushover: 
+      userkey: userkey
+      apikey: apikey
+	deluge: # настройка подключения к Deluge
+      user: userkey
+      pass: pass
+    email:
+      from: xxxx@xxxx.xx 
+      to: xxxx@xxxx.xx 
+      smtp_host: smtp.xxxx.xx
+      smtp_port: 25
+      smtp_username: smtp_username
+      smtp_password: smtp_password
+      smtp_tls: yes
+      template: html  
+  Lostfilm: # Имя пресета
+    series: # Вид фильтра
+      settings: # Начало настройки фильтра
+        720_Lostfilm: # Имя фильтра
+          set: # подключение допполей (нужны для Deluge)
+            path: "/data1/Series/{{series_name}}/Season {{series_season}}"  # путь, куда скачивать файл
+      720_Lostfilm: # Имя фильтра, далее список наименований
+        - Sons of Anarchy
+        - Hell on Wheels
+        - American Horror Story
+        - Arrow
+        - Elementary
+        - Grimm
+        - The Vampire Diaries
+        - 666 Park Avenue
+        - Sherlock
+        - The Walking Dead
+        - Dracula
+        - A Young Doctors Notebook
+        - Peaky Blinders
+        - Intelligence
+        - Black Sails
+    regexp:
+      reject:
+        - 'The Complete'
+        - '720p'
+        - 'mp4'
+    	  
+  BaibaKo: # Конфиг Baibako
+    series:
+      settings: # Начало настройки фильтра
+        XviD: # Имя фильтра
+          quality: XviD # Качество содержимого
+          set: # подключение допполей (нужны для Deluge)
+            path: "/data1/Series/{{series_name}}/Season {{series_season}}"  # путь, куда скачивать файл
+        h264: # Имя фильтра
+          quality: h264 # Качество содержимого
+          set: # подключение допполей (нужны для Deluge)
+            path:  "/data1/Series/{{series_name}}/Season {{series_season}}"  #путь, куда скачивать файл
+        MP4:
+          quality: 480p
+          set: # подключение допполей (нужны для Deluge)
+            path: "/data1/Series/{{series_name}}/Season {{series_season}}"  # путь, куда скачивать файл
+      h264:
+        - The Mentalist
+        - Helix
+        - Downton Abbey
+    
+  Alexfilm:
+    series:
+      settings:
+        720p:
+          quality: 720p
+          set: # подключение допполей (нужны для Deluge)
+            path: "/data1/Series/{{series_name}}/Season {{series_season}}"  # путь, куда скачивать файл
+      720p:
+        - Shameless
+    
+  BigTracker:
+    series:
+      settings:
+        bigtracker:
+          set: # подключение допполей (нужны для Deluge)
+            path: "/data1/Series/{{series_name}}/Season {{series_season}}"  # путь, куда скачивать файл
+      bigtracker:
+        - How I Met Your Mother
+        - The Big Bang Theory
+        - House of Cards
+    regexp:
+      reject:
+        - 'The Complete'
+        - '720p'
+        - 'mp4'
+
+tasks: # Начало настройки RSS-потоков
+  lostfilm:
+    headers:
+      cookie: "uid=xxxx; pass=xxxxxxxxxxxxxxxxxxxxxxx; usess=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;"
+    rss:
+      url: http://lostfilm.tv/rssdd.xml
+      ascii: yes
+    urlrewrite:
+      newlost:
+        regexp: 'http://lostfilm.tv/download.php\?(?P<details>.*)'
+        format: 'http://www.lostfilm.tv/download.php?\g<details>'
+    template: Lostfilm # Подключение пресета
+  BaibaKo:
+    rss:
+      url: http://baibako.tv/rss.php?feed=dl&cat=46,55,189
+      ascii: yes
+    headers:
+      cookie: uid=xxxxx; pass=xxxxxxxxxxxxxxxxxxxxxxxxxx;
+    template: BaibaKo
+  Alexfilm:
+    rss:
+      url: http://alexfilm.tv/rssu.php?uk=zXne9tWv1N
+      ascii: yes
+    disable_builtins:
+      - seen
+    template: Alexfilm
+  BigTracker:
+    rss:
+      url: http://bigtracker.org/load/rss/
+      ascii: yes
+    template: BigTracker
+
+                                        
+
