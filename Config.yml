@@ -3,6 +3,7 @@ templates: # Начало настройки пресетов
     pushover: # Служба push уведомлений. Необходим клиент для Android либо IOS
       userkey: userkey
       apikey: apikey
+	  message: 'Downloaded: {{ series_name }} - {{ series_id }} - {{ tvdb_ep_name|default("Unknown") }}  - {{ quality|upper }}: \n\n{{tvdb_ep_overview|default("No info")}}'
     deluge: # настройка подключения к Deluge
       user: userkey
       pass: pass
@@ -16,6 +17,8 @@ templates: # Начало настройки пресетов
       smtp_tls: yes
       template: html  
   Lostfilm: # Имя пресета
+    tmdb_lookup: yes
+    thetvdb_lookup: yes 
     series: # Вид фильтра
       settings: # Начало настройки фильтра
         720_Lostfilm: # Имя фильтра
@@ -44,6 +47,8 @@ templates: # Начало настройки пресетов
         - 'mp4'
         
   BaibaKo: # Конфиг Baibako
+    tmdb_lookup: yes
+    thetvdb_lookup: yes
     series:
       settings: # Начало настройки фильтра
         XviD: # Имя фильтра
@@ -64,6 +69,8 @@ templates: # Начало настройки пресетов
         - Downton Abbey
     
   Alexfilm:
+    tmdb_lookup: yes
+    thetvdb_lookup: yes
     series:
       settings:
         720p:
@@ -74,6 +81,8 @@ templates: # Начало настройки пресетов
         - Shameless
     
   BigTracker:
+    tmdb_lookup: yes
+    thetvdb_lookup: yes
     series:
       settings:
         bigtracker:
@@ -87,6 +96,8 @@ templates: # Начало настройки пресетов
         - '720p'
         - 'mp4'
   Litr.cc:
+    tmdb_lookup: yes
+    thetvdb_lookup: yes
     series:
       settings:
         Litr:   
