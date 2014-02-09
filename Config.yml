@@ -80,15 +80,21 @@ templates: # Начало настройки пресетов
           set: # подключение допполей (нужны для Deluge)
             path: "/data1/Series/{{series_name}}/Season {{series_season}}"  # путь, куда скачивать файл
       bigtracker:
-        - How I Met Your Mother
-        - The Big Bang Theory
         - House of Cards
     regexp:
       reject:
         - 'The Complete'
         - '720p'
         - 'mp4'
-
+  Litr.cc:
+    series:
+      settings:
+        Litr:   
+          set: # подключение допполей (нужны для Deluge)
+            path: "/data1/Series/{{series_name}}/Season {{series_season}}"  # путь, куда скачивать файл
+      Litr:
+        - How I Met Your Mother
+        - The Big Bang Theory 
 tasks: # Начало настройки RSS-потоков
   lostfilm:
     headers:
@@ -120,6 +126,12 @@ tasks: # Начало настройки RSS-потоков
       url: http://bigtracker.org/load/rss/
       ascii: yes
     template: BigTracker
-
+  Litr.cc:
+    rss:
+      url: http://litr.cc/rss/download/bb413bd970c4e43966709152100b4b03
+      ascii: yes
+    disable_builtins:
+      - seen
+    template: Litr.cc
                                         
 
